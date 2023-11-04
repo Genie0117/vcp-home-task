@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
-import { GetWikiSearchData } from './types';
+import { WikiSearchData } from './types';
 
 const EXTERNAL_API_URL = 'https://en.wikipedia.org/w/api.php';
 
@@ -9,7 +9,7 @@ const EXTERNAL_API_URL = 'https://en.wikipedia.org/w/api.php';
 export class WikiService {
   constructor(private readonly httpService: HttpService) {}
 
-  async getWikiSearch(query: string): Promise<GetWikiSearchData> {
+  async getWikiSearch(query: string): Promise<WikiSearchData> {
     const params = {
       action: 'query',
       list: 'search',
@@ -19,6 +19,7 @@ export class WikiService {
     const { data } = await lastValueFrom(
       this.httpService.get(EXTERNAL_API_URL, { params }),
     );
+
     return data;
   }
 }

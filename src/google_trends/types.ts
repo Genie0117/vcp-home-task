@@ -34,7 +34,7 @@ interface InterestOverTime {
   timeline_data: TimelineData[];
 }
 
-export interface GetTrendsInterestOverTimeData {
+export interface TrendsInterestOverTimeData {
   search_metadata: SearchMetadata;
   search_parameters: SearchParameters;
   interest_over_time: InterestOverTime;

@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
-import { GetTrendsInterestOverTimeData } from './types';
+import { TrendsInterestOverTimeData } from './types';
 
 const EXTERNAL_API_URL = 'https://serpapi.com';
 @Injectable()
@@ -10,7 +10,7 @@ export class GoogleTrendsService {
 
   async getTrendsInterestOverTime(
     query: string,
-  ): Promise<GetTrendsInterestOverTimeData> {
+  ): Promise<TrendsInterestOverTimeData> {
     const params = {
       engine: 'google_trends',
       q: query,

@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { CreatorData } from './types';
 
 @Injectable()
 export class CheckService {
-  getCreator(): { creator: string } {
+  getCreator(): CreatorData {
     return { creator: 'Evgenii Tachalov' };
   }
 }
